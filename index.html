@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <title>Τεστ Γνώσεων - Αθλητικά</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .quiz-box {
+            width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            border: 2px solid #333;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .question {
+            margin-bottom: 15px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #084298;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-box">
+    <h2>Τεστ Γνώσεων: Αθλητικά</h2>
+
+    <!-- Ερώτηση 1 -->
+    <div class="question">
+        <p>1. Το ποδόσφαιρο παίζεται με 11 παίκτες σε κάθε ομάδα.</p>
+        <input type="radio" name="q1" value="true"> Σωστό
+        <input type="radio" name="q1" value="false"> Λάθος
+    </div>
+
+    <!-- Ερώτηση 2 -->
+    <div class="question">
+        <p>2. Ο Μάικλ Τζόρνταν είναι γνωστός για το μπάσκετ.</p>
+        <input type="radio" name="q2" value="true"> Σωστό
+        <input type="radio" name="q2" value="false"> Λάθος
+    </div>
+
+    <!-- Ερώτηση 3 -->
+    <div class="question">
+        <p>3. Οι Ολυμπιακοί Αγώνες γίνονται κάθε 2 χρόνια.</p>
+        <input type="radio" name="q3" value="true"> Σωστό
+        <input type="radio" name="q3" value="false"> Λάθος
+    </div>
+
+    <!-- Ερώτηση 4 -->
+    <div class="question">
+        <p>4. Το τένις παίζεται με μπάλα και ρακέτα.</p>
+        <input type="radio" name="q4" value="true"> Σωστό
+        <input type="radio" name="q4" value="false"> Λάθος
+    </div>
+
+    <button onclick="checkAnswers()">Υποβολή Τεστ</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    function checkAnswers() {
+        let score = 0;
+
+        if (document.querySelector('input[name="q1"]:checked')?.value === "true") score++;
+        if (document.querySelector('input[name="q2"]:checked')?.value === "true") score++;
+        if (document.querySelector('input[name="q3"]:checked')?.value === "false") score++;
+        if (document.querySelector('input[name="q4"]:checked')?.value === "true") score++;
+
+        document.getElementById("result").innerHTML =
+            "Τελική Βαθμολογία: " + score + " / 4";
+    }
+</script>
+
+</body>
+</html>
